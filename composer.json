@@ -1,0 +1,37 @@
+{
+    "name": "darinlarimore/statamic-rive",
+    "autoload": {
+        "psr-4": {
+            "Darinlarimore\\StatamicRive\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Darinlarimore\\StatamicRive\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "statamic/cms": "^5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Rive",
+            "description": "Statamic Rive addon"
+        },
+        "laravel": {
+            "providers": [
+                "Darinlarimore\\StatamicRive\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
