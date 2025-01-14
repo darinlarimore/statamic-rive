@@ -35,6 +35,7 @@
 				:artboard="data.artboard"
 				:animation="data.animation"
 				:shouldDisableRiveListeners="data.shouldDisableRiveListeners"
+				:isTouchScrollEnabled="data.isTouchScrollEnabled"
 				:width="data.width"
 				:height="data.height"
 			/>
@@ -93,7 +94,7 @@
 					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.stateMachine" />
 				</div>
 
-				<!-- shouldDisableRiveListeners -->
+				<!-- Disable Rive Listeners -->
 				<div>
 					<label>Disable Rive Listeners
 						<br>
@@ -101,6 +102,15 @@
 					</label>
 
 					<toggle-input v-model="data.shouldDisableRiveListeners" />
+				</div>
+
+				<div>
+					<label>Touch Scroll Enabled
+						<br>
+						<span class="r-text-xs r-text-gray-500">Allows scrolling behavior to still occur on canvas elements when a touch/drag action is performed on touch-enabled devices.</span>
+					</label>
+
+					<toggle-input v-model="data.isTouchScrollEnabled" />
 				</div>
 
 
@@ -119,6 +129,7 @@
 			return {
 				showOptions: false,
 				data: {
+					isTouchScrollEnabled: this.value?.isTouchScrollEnabled || true,
 					shouldDisableRiveListeners: this.value?.shouldDisableRiveListeners || false,
 					animation: this.value?.animation || null,
 					artboard: this.value?.artboard || null,
