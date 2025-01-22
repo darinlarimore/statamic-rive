@@ -190,10 +190,9 @@
 							this.data.id = response.data[0].id;
 							this.data.fileName = response.data[0].basename;
 							this.data.alt = response.data[0].values.alt;
+							this.data.error = null;
 						} else {
-							this.data = {
-								error: "Invalid file type",
-							};
+							this.data.error = "Invalid file type. Please upload a .riv file";
 						}
 					})
 			},
