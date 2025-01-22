@@ -173,7 +173,10 @@
 			},
 
 			riveClear() {
-				this.data = [];
+				this.data.url = null;
+				this.data.id = null;
+				this.data.fileName = null;
+				this.data.alt = null;
 			},
 
 			getAsset(value, handle, fileTypes) {
@@ -183,12 +186,10 @@
 					})
 					.then((response) => {
 						if (fileTypes.includes(response.data[0].extension)) {
-							this.data = {
-								url: response.data[0].url,
-								id: response.data[0].id,
-								fileName: response.data[0].basename,
-								alt: response.data[0].values.alt,
-							};
+							this.data.url = response.data[0].url;
+							this.data.id = response.data[0].id;
+							this.data.fileName = response.data[0].basename;
+							this.data.alt = response.data[0].values.alt;
 						} else {
 							this.data = {
 								error: "Invalid file type",
