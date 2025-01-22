@@ -113,6 +113,14 @@
 					<toggle-input v-model="data.isTouchScrollEnabled" />
 				</div>
 
+				<div>
+					<label>
+						Custom JavaScript
+						<br>
+						<span class="r-text-xs r-text-gray-500">Add custom javascript for the animation</span>
+					</label>
+					<CodeField :value="data.customJs" @input="updateCustomJs" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -120,8 +128,9 @@
 
 <script>
 	import RiveWrapper from './RiveWrapper.vue';
+	import CodeField from './CodeField.vue';
 	export default {
-		components: { RiveWrapper },
+		components: { RiveWrapper, CodeField },
 		mixins: [Fieldtype],
 		inject: ['storeName'],
 		data() {
@@ -140,6 +149,7 @@
 					fileName: this.value?.fileName || null,
 					alt: this.value?.alt || null,
 					error: this.value?.error || null,
+					customJs: this.value?.customJs || null,
 				}
 			};
 		},
@@ -167,6 +177,10 @@
 			},
 		},
 		methods: {
+			updateCustomJs(value) {
+				this.data.customJs = value;
+			},
+
 			updateRive(assets) {
 				if (assets[0]) {
 					this.getAsset(assets[0], 'rive', ['riv']);
