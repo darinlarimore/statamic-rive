@@ -7,9 +7,9 @@
 			:value="riveId"
 			ref="assets"
 			handle="assets"
-			:config="config"
+			:config="assetsConfig"
 			:readOnly="readOnly"
-			@input="updaterive"
+			@input="updateRive"
 			></assets-fieldtype>
 		</div>
 
@@ -113,7 +113,6 @@
 					<toggle-input v-model="data.isTouchScrollEnabled" />
 				</div>
 
-
 			</div>
 		</div>
 	</div>
@@ -146,9 +145,11 @@
 		},
 
 		mounted() {
-			this.config.max_files = 1;
-			this.config.min_files = 0;
-			this.config.mode = 'list';
+			this.assetsConfig = {
+				max_files: 1,
+				min_files: 0,
+				mode: 'list',
+			}
 		},
 
 		watch: {
@@ -166,7 +167,7 @@
 			},
 		},
 		methods: {
-			updaterive(assets) {
+			updateRive(assets) {
 				if (assets[0]) {
 					this.getAsset(assets[0], 'rive', ['riv']);
 				}
