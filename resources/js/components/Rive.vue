@@ -7,7 +7,7 @@
 			:value="riveId"
 			ref="assets"
 			handle="assets"
-			:config="assetsConfig"
+			:config="config"
 			:readOnly="readOnly"
 			@input="updateRive"
 			></assets-fieldtype>
@@ -145,11 +145,9 @@
 		},
 
 		mounted() {
-			this.assetsConfig = {
-				max_files: 1,
-				min_files: 0,
-				mode: 'list',
-			}
+			this.config.max_files = 1
+			this.config.min_files = 0
+			this.config.mode = 'list'
 		},
 
 		watch: {
