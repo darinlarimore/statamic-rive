@@ -47,6 +47,18 @@ Use the `rive_animation` handle in your template. The field will have the follow
 - `artboard` - The artboard of the animation
 - `shouldDisableRiveListeners` - Whether or not to disable Rive listeners
 
+### Install Rive.js from NPM or CDN
+``` bash
+npm install rive-canvas
+```
+
+### Import Rive.js into your project
+``` js
+import Rive from 'rive-canvas';
+
+window.Rive = Rive;
+```
+
 ### Example Usage
 Using Alpine.js to initialize the Rive animation:
 ``` html
