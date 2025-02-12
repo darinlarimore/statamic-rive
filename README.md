@@ -8,6 +8,7 @@ This addon does:
 - Upload a .riv Rive file
 - Configure settings for the Rive Model
 - Display a preview of the Rive animation
+- Display file information about the Rive animation
 
 ![Editor View](/readmeAssets/editorView.png)
 
