@@ -52,7 +52,7 @@
 						<br>
 						<span class="r-text-xs r-text-gray-500">Width of the animation</span>
 					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.width" />
+					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model.lazy="data.width" />
 				</div>
 
 				<div>
@@ -61,7 +61,7 @@
 						<br>
 						<span class="r-text-xs r-text-gray-500">Height of the animation</span>
 					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.height" />
+					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model.lazy="data.height" />
 				</div>
 
 				<!-- animations config -->
@@ -71,7 +71,7 @@
 						<br>
 						<span class="r-text-xs r-text-gray-500"> Name of the animation to use</span>
 					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.animation" />
+					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model.lazy="data.animation" />
 				</div>
 
 				<!-- Art Board config  -->
@@ -81,7 +81,7 @@
 						<br>
 						<span class="r-text-xs r-text-gray-500"> Name of the artboard to use</span>
 					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.artboard" />
+					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model.lazy="data.artboard" />
 				</div>
 
 				<!-- State Machine Selection String Input -->
@@ -91,7 +91,7 @@
 						<br>
 						<span class="r-text-xs r-text-gray-500"> Name of the state machine to use</span>
 					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.stateMachine" />
+					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model.lazy="data.stateMachine" />
 				</div>
 
 				<!-- Disable Rive Listeners -->
