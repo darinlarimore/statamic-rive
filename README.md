@@ -31,6 +31,7 @@ composer require darinlarimore/statamic-rive
 
 ### Add the field to a blueprint
 ![Rive Field](/readmeAssets/fieldType.png)
+
 Name the field handle `rive_animation` or whatever you like.
 
 ### Configure the field settings
@@ -50,12 +51,12 @@ Use the `rive_animation` handle in your template. The field will have the follow
 
 ### Install Rive.js from NPM or CDN
 ``` bash
-npm install rive-canvas
+npm install @rive-app/canvas
 ```
 
 ### Import Rive.js into your project
 ``` js
-import Rive from 'rive-canvas';
+import { Rive } from "@rive-app/canvas";
 
 window.Rive = Rive;
 ```
