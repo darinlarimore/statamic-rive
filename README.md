@@ -66,25 +66,25 @@ Using Alpine.js to initialize the Rive animation:
 ``` html
 	<div x-data x-init="() => {
 		const rive = new window.Rive({
-			src: '{{ rive.url }}',
+			src: '{{ rive_animation.url }}',
 			canvas: $refs.riveCanvas,
 			autoplay: true,
 			onLoad: () => {
 				rive.resizeDrawingSurfaceToCanvas();
 			},
-			{{ if rive.stateMachine }}
-				stateMachines: '{{ rive.stateMachine }}',
+			{{ if rive_animation.stateMachine }}
+				stateMachines: '{{ rive_animation.stateMachine }}',
 			{{ /if }}
-			{{ if rive.animation }}
-				animations: '{{ rive.animation }}',
+			{{ if rive_animation.animation }}
+				animations: '{{ rive_animation.animation }}',
 			{{ /if }}
-			{{ if rive.artboard }}
-				artboard: '{{ rive.artboard }}',
+			{{ if rive_animation.artboard }}
+				artboard: '{{ rive_animation.artboard }}',
 			{{ /if }}
-			shouldDisableRiveListeners: '{{ rive.shouldDisableRiveListeners }}',
+			shouldDisableRiveListeners: '{{ rive_animation.shouldDisableRiveListeners }}',
 		});
 	}">
-		<canvas x-ref="riveCanvas" width="{{rive.width}}" height="{{rive.height}}" class="{{class}}"></canvas>
+		<canvas x-ref="riveCanvas" width="{{rive_animation.width}}" height="{{rive_animation.height}}"></canvas>
 	</div>
 ```
 
