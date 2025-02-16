@@ -12,7 +12,7 @@
 		"vite": "^4.0.0"
 	},
 	"dependencies": {
-		"@rive-app/canvas": "^2.25.3",
+		"@rive-app/webgl": "^2.26.2",
 		"postcss": "^8.4.47",
 		"tailwindcss": "^3.4.13"
 	}
