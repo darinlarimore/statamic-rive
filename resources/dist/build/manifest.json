@@ -1,12 +1,17 @@
 {
   "resources/css/main.css": {
-    "file": "assets/main-35cad16d.css",
+    "file": "assets/main-Dcnx0els.css",
+    "src": "resources/css/main.css",
     "isEntry": true,
-    "src": "resources/css/main.css"
+    "name": "main",
+    "names": [
+      "main.css"
+    ]
   },
   "resources/js/main.js": {
-    "file": "assets/main-2a245979.js",
-    "isEntry": true,
-    "src": "resources/js/main.js"
+    "file": "assets/main-B4QYJenA.js",
+    "name": "main",
+    "src": "resources/js/main.js",
+    "isEntry": true
   }
 }
