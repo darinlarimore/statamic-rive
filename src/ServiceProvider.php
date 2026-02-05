@@ -20,8 +20,5 @@ class ServiceProvider extends AddonServiceProvider
     {
         // register field type
         rive::register();
-
-        // register views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'rive');
     }
 }
