@@ -10,7 +10,7 @@
 			:config="assetsConfig"
 			:meta="assetsMeta"
 			:readOnly="readOnly"
-			@input="updateRive"
+			@update:value="updateRive"
 			></assets-fieldtype>
 		</div>
 
