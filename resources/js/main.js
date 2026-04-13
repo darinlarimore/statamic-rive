@@ -1,6 +1,6 @@
 import '../css/main.css'
-import Fieldtype from './components/Rive.vue'
+import RiveFieldtype from './components/Rive.vue'
 
 Statamic.booting(() => {
-	Statamic.$components.register('rive-fieldtype', Fieldtype)
+	Statamic.$components.register('rive-fieldtype', RiveFieldtype)
 })
