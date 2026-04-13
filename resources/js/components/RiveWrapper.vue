@@ -1,7 +1,7 @@
 <template>
 	<div class="r-flex r-justify-between r-mb-6 r-gap-4">
-		<div ref="riveWrapper">
-			<canvas ref="riveCanvas" :height="height" :width="width" class="r-w-full r-max-h-96"></canvas>
+		<div ref="riveWrapper" :style="{ width: width + 'px', maxWidth: '100%' }">
+			<canvas ref="riveCanvas" :height="height" :width="width" :style="{ width: '100%', height: 'auto', maxHeight: '24rem' }"></canvas>
 		</div>
 
 		<div class="r-text-xs r-text-right">
@@ -71,26 +71,67 @@
 			};
 		},
 		mounted() {
-			this.rive = new Rive({
-				src: this.src,
-				stateMachines: this.stateMachine,
-				canvas: this.$refs.riveCanvas,
-				autoplay: true,
-				artboard: this.artboard,
-				animations: this.animation,
-				shouldDisableRiveListeners: this.shouldDisableRiveListeners,
-				isTouchScrollEnabled: this.isTouchScrollEnabled,
-				onLoad: () => {
-					// Log the contents of the Rive file
-					this.sourceWidth = this.rive.bounds.maxX;
-					this.sourceHeight = this.rive.bounds.maxY;
-					this.artboards = this.rive.contents.artboards.map(artboard => artboard.name);
-					this.animations = this.rive.contents.artboards.map(artboard => artboard.animations);
-					this.stateMachines = this.rive.contents.artboards.map(artboard => artboard.stateMachines.map(stateMachine => stateMachine.name));
-				},
-			});
+			this.waitForLayout().then(() => this.initRive());
+		},
+		beforeUnmount() {
+			if (this._resizeObserver) {
+				this._resizeObserver.disconnect();
+				this._resizeObserver = null;
+			}
+			if (this.rive) {
+				this.rive.cleanup();
+				this.rive = null;
+			}
+		},
+		methods: {
+			waitForLayout() {
+				return new Promise((resolve) => {
+					const el = this.$refs.riveWrapper;
+					if (el && el.offsetWidth > 0) {
+						resolve();
+						return;
+					}
+					this._resizeObserver = new ResizeObserver((entries) => {
+						for (const entry of entries) {
+							if (entry.contentRect.width > 0) {
+								this._resizeObserver.disconnect();
+								this._resizeObserver = null;
+								resolve();
+								return;
+							}
+						}
+					});
+					this._resizeObserver.observe(el);
+				});
+			},
 
-			this.rive.resizeDrawingSurfaceToCanvas();
-		}
+			initRive() {
+				const canvas = this.$refs.riveCanvas;
+				if (!canvas) return;
+
+				canvas.width = parseInt(this.width) || 500;
+				canvas.height = parseInt(this.height) || 500;
+
+				this.rive = new Rive({
+					src: this.src,
+					stateMachines: this.stateMachine,
+					canvas: canvas,
+					autoplay: true,
+					artboard: this.artboard,
+					animations: this.animation,
+					shouldDisableRiveListeners: this.shouldDisableRiveListeners,
+					isTouchScrollEnabled: this.isTouchScrollEnabled,
+					onLoad: () => {
+						this.sourceWidth = this.rive.bounds.maxX;
+						this.sourceHeight = this.rive.bounds.maxY;
+						this.artboards = this.rive.contents.artboards.map(artboard => artboard.name);
+						this.animations = this.rive.contents.artboards.map(artboard => artboard.animations);
+						this.stateMachines = this.rive.contents.artboards.map(artboard => artboard.stateMachines.map(stateMachine => stateMachine.name));
+
+						this.rive.resizeDrawingSurfaceToCanvas();
+					},
+				});
+			},
+		},
 	};
 </script>

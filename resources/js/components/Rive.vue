@@ -48,70 +48,49 @@
 			<div v-if="showOptions" class="r-grid r-mt-6 r-gap-4">
 
 				<div>
-					<label>
-						Width
-						<br>
-						<span class="r-text-xs r-text-gray-500">Width of the animation</span>
-					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.width" />
+					<label class="r-text-sm font-medium">Width</label>
+					<p class="r-text-xs r-text-gray-500">Width of the animation</p>
+					<input type="text" class="w-full block bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-base rounded-lg px-3 py-2 h-10 r-mt-1" v-model="data.width" />
 				</div>
 
 				<div>
-					<label>
-						Height
-						<br>
-						<span class="r-text-xs r-text-gray-500">Height of the animation</span>
-					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.height" />
-				</div>
-
-				<!-- animations config -->
-				<div>
-					<label>
-						Animation
-						<br>
-						<span class="r-text-xs r-text-gray-500"> Name of the animation to use</span>
-					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.animation" />
-				</div>
-
-				<!-- Art Board config  -->
-				<div>
-					<label>
-						Art Board
-						<br>
-						<span class="r-text-xs r-text-gray-500"> Name of the artboard to use</span>
-					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.artboard" />
-				</div>
-
-				<!-- State Machine Selection String Input -->
-				<div>
-					<label>
-						State Machine
-						<br>
-						<span class="r-text-xs r-text-gray-500"> Name of the state machine to use</span>
-					</label>
-					<input type="text" class="input-text r-mt-1 r-w-1/2" v-model="data.stateMachine" />
-				</div>
-
-				<!-- Disable Rive Listeners -->
-				<div>
-					<label>Disable Rive Listeners
-						<br>
-						<span class="r-text-xs r-text-gray-500"> Prevent any event listeners from being set up on the element</span>
-					</label>
-
-					<toggle-input v-model="data.shouldDisableRiveListeners" />
+					<label class="r-text-sm font-medium">Height</label>
+					<p class="r-text-xs r-text-gray-500">Height of the animation</p>
+					<input type="text" class="w-full block bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-base rounded-lg px-3 py-2 h-10 r-mt-1" v-model="data.height" />
 				</div>
 
 				<div>
-					<label>Touch Scroll Enabled
-						<br>
-						<span class="r-text-xs r-text-gray-500">Allows scrolling behavior to still occur on canvas elements when a touch/drag action is performed on touch-enabled devices.</span>
-					</label>
+					<label class="r-text-sm font-medium">Animation</label>
+					<p class="r-text-xs r-text-gray-500">Name of the animation to use</p>
+					<input type="text" class="w-full block bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-base rounded-lg px-3 py-2 h-10 r-mt-1" v-model="data.animation" />
+				</div>
 
-					<toggle-input v-model="data.isTouchScrollEnabled" />
+				<div>
+					<label class="r-text-sm font-medium">Art Board</label>
+					<p class="r-text-xs r-text-gray-500">Name of the artboard to use</p>
+					<input type="text" class="w-full block bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-base rounded-lg px-3 py-2 h-10 r-mt-1" v-model="data.artboard" />
+				</div>
+
+				<div>
+					<label class="r-text-sm font-medium">State Machine</label>
+					<p class="r-text-xs r-text-gray-500">Name of the state machine to use</p>
+					<input type="text" class="w-full block bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-base rounded-lg px-3 py-2 h-10 r-mt-1" v-model="data.stateMachine" />
+				</div>
+
+				<div class="r-flex r-items-center r-gap-2">
+					<input type="checkbox" v-model="data.shouldDisableRiveListeners" class="rounded border-gray-300" />
+					<div>
+						<label class="r-text-sm font-medium">Disable Rive Listeners</label>
+						<p class="r-text-xs r-text-gray-500">Prevent any event listeners from being set up on the element</p>
+					</div>
+				</div>
+
+				<div class="r-flex r-items-center r-gap-2">
+					<input type="checkbox" v-model="data.isTouchScrollEnabled" class="rounded border-gray-300" />
+					<div>
+						<label class="r-text-sm font-medium">Touch Scroll Enabled</label>
+						<p class="r-text-xs r-text-gray-500">Allows scrolling behavior to still occur on canvas elements when a touch/drag action is performed on touch-enabled devices.</p>
+					</div>
 				</div>
 
 			</div>
