@@ -33,14 +33,21 @@ class rive extends Fieldtype
 
     public function preload()
     {
-        $version = Statamic::version();
-        $versionArray = explode('.', $version);
+        $container = $this->container();
+
         return [
             'default' => $this->defaultValue(),
             'data' => $this->getItemData($this->field->value() ?? []),
-            'container' => $this->container()->handle(),
-            'statamic_version' => $version,
-            'statamic_major_version' => isset($versionArray[0]) ? (int)$versionArray[0] : 4
+            'container' => [
+                'id' => $container->id(),
+                'handle' => $container->handle(),
+                'title' => $container->title(),
+                'can_view' => true,
+                'can_upload' => true,
+                'can_edit' => true,
+                'can_delete' => true,
+                'can_create_folders' => true,
+            ],
         ];
     }
 

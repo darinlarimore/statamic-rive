@@ -7,7 +7,8 @@
 			:value="riveId"
 			ref="assets"
 			handle="assets"
-			:config="config"
+			:config="assetsConfig"
+			:meta="assetsMeta"
 			:readOnly="readOnly"
 			@input="updateRive"
 			></assets-fieldtype>
@@ -143,12 +144,6 @@
 			};
 		},
 
-		mounted() {
-			this.config.max_files = 1
-			this.config.min_files = 0
-			this.config.mode = 'list'
-		},
-
 		watch: {
 			data: {
 				deep: true,
@@ -161,6 +156,27 @@
 		computed: {
 			riveId() {
 				return this.data.id ? [this.data.id] : [];
+			},
+
+			assetsConfig() {
+				return {
+					container: this.meta.container?.handle || this.config.container,
+					folder: this.config.folder,
+					restrict: this.config.restrict,
+					allow_uploads: this.config.allow_uploads,
+					max_files: 1,
+					min_files: 0,
+					mode: 'list',
+				}
+			},
+
+			assetsMeta() {
+				return {
+					container: this.meta.container,
+					data: null,
+					dynamicFolder: null,
+					rename_folder: null,
+				}
 			},
 		},
 		methods: {
