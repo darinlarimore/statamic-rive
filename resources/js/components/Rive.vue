@@ -123,7 +123,6 @@
 	export default {
 		components: { RiveWrapper },
 		mixins: [Fieldtype],
-		inject: ['storeName'],
 		data() {
 			return {
 				showOptions: false,
